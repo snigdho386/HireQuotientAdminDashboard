@@ -1,0 +1,49 @@
+{
+  "name": "Dashboard",
+  "version": "0.5.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.8.3",
+    "antd": "^5.11.5",
+    "bootstrap": "^5.3.2",
+    "mdb-react-ui-kit": "^7.0.0",
+    "mdbreact": "^5.2.0",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.6",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.12.0",
+    "react-paginate": "^8.2.0",
+    "react-router-bootstrap": "^0.25.0",
+    "react-router-dom": "^6.17.0",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.69.5",
+    "web-vitals": "^1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
