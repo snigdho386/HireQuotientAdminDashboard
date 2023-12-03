@@ -36,15 +36,27 @@ const App = () => {
      setSearchText(str);
      console.log("Search Text", searchText);
    }
-   const handleCheckboxChange = (id) => {
+   
+   const handleCheckboxChange = (id) => { 
+    console.log("Selected")
      let updatedSelection = [...selectedRows];
      if (updatedSelection.includes(id)) {
        updatedSelection = updatedSelection.filter((selectedId) => selectedId !== id);
      } else {
        updatedSelection.push(id);
      }
-     setSelectedRows(updatedSelection);
-   };
+    
+     if(updatedSelection.length==10) 
+     {  
+        
+        setSelectAll(true);
+     } 
+      else{ 
+       setSelectAll(false);
+      }
+     setSelectedRows(updatedSelection)
+    };
+     
  
    const handleSelectAll = () => {
      if (selectAll) {
@@ -129,7 +141,8 @@ const App = () => {
  
    return (
      <div className="App">
-        {/* //SearchBar */}
+
+      {/* SearchBar Component */}
        <div className='d-flex justify-content-between align-items-center'>
              <Searchbar callBack={getSearchText}/> 
              <button onClick={handleDeleteAll}>
@@ -223,14 +236,19 @@ const App = () => {
      {/* Pagination */}
      <ReactBootStrap.Pagination>
          {/* Pagination controls */}
-         <ReactBootStrap.Pagination.First
-           onClick={()=>setCurrentPage(1)}
-           disabled={currentPage === 1}
-         />
-         <ReactBootStrap.Pagination.Prev
+         <div className="first-page">
+            <ReactBootStrap.Pagination.First
+            onClick={()=>setCurrentPage(1)}
+            disabled={currentPage === 1}
+          />
+         </div>
+        <div className="previous-page">
+           <ReactBootStrap.Pagination.Prev
            onClick={() => setCurrentPage(currentPage - 1)}
            disabled={currentPage === 1}
          />
+        </div>
+        
          {Array.from({ length: Math.ceil(filteredUsers.length / itemsPerPage) }, (_, i) => (
            <ReactBootStrap.Pagination.Item
              key={i}
@@ -240,14 +258,18 @@ const App = () => {
              {i + 1}
            </ReactBootStrap.Pagination.Item>
          ))}
-         <ReactBootStrap.Pagination.Next
-           onClick={() => setCurrentPage(currentPage + 1)}
-           disabled={currentPage === Math.ceil(filteredUsers.length / itemsPerPage)}
-         />
-         <ReactBootStrap.Pagination.Last
-           onClick={()=>setCurrentPage(Math.ceil(filteredUsers.length / itemsPerPage))}
-           disabled={currentPage===Math.ceil(filteredUsers.length / itemsPerPage)}
-         />
+         <div className="next-page">
+            <ReactBootStrap.Pagination.Next
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === Math.ceil(filteredUsers.length / itemsPerPage)}
+          />
+         </div>
+         <div className="last-page">
+            <ReactBootStrap.Pagination.Last
+            onClick={()=>setCurrentPage(Math.ceil(filteredUsers.length / itemsPerPage))}
+            disabled={currentPage===Math.ceil(filteredUsers.length / itemsPerPage)}
+          />
+         </div>
        </ReactBootStrap.Pagination>
    </div>
    )
